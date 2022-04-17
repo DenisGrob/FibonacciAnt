@@ -28,3 +28,5 @@
 2022-04-15 12:40:55 DEBUG Main:13 - 0,1,1,2,3,5,8,13,21,34,55
 2022-04-15 12:41:26 DEBUG Main:12 - Hello this is a debug message
 2022-04-15 12:41:26 DEBUG Main:13 - 0,1,1,2,3,5,8,13,21,34,55
+2022-04-17 20:39:47 DEBUG Main:12 - Hello this is a debug message
+2022-04-17 20:39:47 DEBUG Main:13 - 0,1,1,2,3,5,8,13,21,34,55
