@@ -1,0 +1,30 @@
+2022-04-15 11:33:04 DEBUG Main:12 - Hello this is a debug message
+2022-04-15 11:33:04 DEBUG Main:13 - 0,1,1,2,3,5,8,13,21,34,55
+2022-04-15 11:33:28 DEBUG Main:12 - Hello this is a debug message
+2022-04-15 11:33:28 DEBUG Main:13 - 0,1,1,2,3,5,8,13,21,34,55
+2022-04-15 11:33:51 DEBUG Main:12 - Hello this is a debug message
+2022-04-15 11:33:52 DEBUG Main:13 - 0,1,1,2,3,5,8,13,21,34,55
+2022-04-15 11:34:43 DEBUG Main:12 - Hello this is a debug message
+2022-04-15 11:34:43 DEBUG Main:13 - 0,1,1,2,3,5,8,13,21,34,55
+2022-04-15 12:30:00 DEBUG Main:12 - Hello this is a debug message
+2022-04-15 12:30:00 DEBUG Main:13 - 0,1,1,2,3,5,8,13,21,34,55
+2022-04-15 12:30:12 DEBUG Main:12 - Hello this is a debug message
+2022-04-15 12:30:12 DEBUG Main:13 - 0,1,1,2,3,5,8,13,21,34,55
+2022-04-15 12:30:43 DEBUG Main:12 - Hello this is a debug message
+2022-04-15 12:30:43 DEBUG Main:13 - 0,1,1,2,3,5,8,13,21,34,55
+2022-04-15 12:30:52 DEBUG Main:12 - Hello this is a debug message
+2022-04-15 12:30:52 DEBUG Main:13 - 0,1,1,2,3,5,8,13,21,34,55
+2022-04-15 12:30:59 DEBUG Main:12 - Hello this is a debug message
+2022-04-15 12:30:59 DEBUG Main:13 - 0,1,1,2,3,5,8,13,21,34,55
+2022-04-15 12:35:21 DEBUG Main:12 - Hello this is a debug message
+2022-04-15 12:35:21 DEBUG Main:13 - 0,1,1,2,3,5,8,13,21,34,55
+2022-04-15 12:35:30 DEBUG Main:12 - Hello this is a debug message
+2022-04-15 12:35:30 DEBUG Main:13 - 0,1,1,2,3,5,8,13,21,34,55
+2022-04-15 12:35:49 DEBUG Main:12 - Hello this is a debug message
+2022-04-15 12:35:49 DEBUG Main:13 - 0,1,1,2,3,5,8,13,21,34,55
+2022-04-15 12:39:19 DEBUG Main:12 - Hello this is a debug message
+2022-04-15 12:39:19 DEBUG Main:13 - 0,1,1,2,3,5,8,13,21,34,55
+2022-04-15 12:40:54 DEBUG Main:12 - Hello this is a debug message
+2022-04-15 12:40:55 DEBUG Main:13 - 0,1,1,2,3,5,8,13,21,34,55
+2022-04-15 12:41:26 DEBUG Main:12 - Hello this is a debug message
+2022-04-15 12:41:26 DEBUG Main:13 - 0,1,1,2,3,5,8,13,21,34,55

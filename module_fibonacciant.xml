@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="module_fibonacciant" default="compile.module.fibonacciant">
+  <dirname property="module.fibonacciant.basedir" file="${ant.file.module_fibonacciant}"/>
+  
+  <property name="module.jdk.home.fibonacciant" value="${project.jdk.home}"/>
+  <property name="module.jdk.bin.fibonacciant" value="${project.jdk.bin}"/>
+  <property name="module.jdk.classpath.fibonacciant" value="${project.jdk.classpath}"/>
+  
+  <property name="compiler.args.fibonacciant" value="-encoding UTF-8 -source 8 -target 8 ${compiler.args}"/>
+  
+  <property name="fibonacciant.output.dir" value="${module.fibonacciant.basedir}/out/production/FibonacciAnt"/>
+  <property name="fibonacciant.testoutput.dir" value="${module.fibonacciant.basedir}/out/test/FibonacciAnt"/>
+  
+  <path id="fibonacciant.module.bootclasspath">
+    <!-- Paths to be included in compilation bootclasspath -->
+  </path>
+  
+  <path id="fibonacciant.module.production.classpath">
+    <path refid="${module.jdk.classpath.fibonacciant}"/>
+    <path refid="library.log4j.classpath"/>
+    <path refid="library.junit.classpath"/>
+  </path>
+  
+  <path id="fibonacciant.runtime.production.module.classpath">
+    <pathelement location="${fibonacciant.output.dir}"/>
+    <path refid="library.log4j.classpath"/>
+    <path refid="library.junit.classpath"/>
+  </path>
+  
+  <path id="fibonacciant.module.classpath">
+    <path refid="${module.jdk.classpath.fibonacciant}"/>
+    <pathelement location="${fibonacciant.output.dir}"/>
+    <path refid="library.log4j.classpath"/>
+    <path refid="library.junit.classpath"/>
+  </path>
+  
+  <path id="fibonacciant.runtime.module.classpath">
+    <pathelement location="${fibonacciant.testoutput.dir}"/>
+    <pathelement location="${fibonacciant.output.dir}"/>
+    <path refid="library.log4j.classpath"/>
+    <path refid="library.junit.classpath"/>
+  </path>
+  
+  
+  <patternset id="excluded.from.module.fibonacciant">
+    <patternset refid="ignored.files"/>
+  </patternset>
+  
+  <patternset id="excluded.from.compilation.fibonacciant">
+    <patternset refid="excluded.from.module.fibonacciant"/>
+  </patternset>
+  
+  <path id="fibonacciant.module.sourcepath">
+    <dirset dir="${module.fibonacciant.basedir}">
+      <include name="src"/>
+      <include name="src/main"/>
+      <include name="src/main/resources"/>
+    </dirset>
+  </path>
+  
+  <path id="fibonacciant.module.test.sourcepath">
+    <dirset dir="${module.fibonacciant.basedir}">
+      <include name="src/Test"/>
+    </dirset>
+  </path>
+  
+  
+  <target name="compile.module.fibonacciant" depends="compile.module.fibonacciant.production,compile.module.fibonacciant.tests" description="Compile module FibonacciAnt"/>
+  
+  <target name="compile.module.fibonacciant.production" description="Compile module FibonacciAnt; production classes">
+    <mkdir dir="${fibonacciant.output.dir}"/>
+    <javac destdir="${fibonacciant.output.dir}" debug="${compiler.debug}" nowarn="${compiler.generate.no.warnings}" memorymaximumsize="${compiler.max.memory}" fork="true" executable="${module.jdk.bin.fibonacciant}/javac">
+      <compilerarg line="${compiler.args.fibonacciant}"/>
+      <bootclasspath refid="fibonacciant.module.bootclasspath"/>
+      <classpath refid="fibonacciant.module.production.classpath"/>
+      <src refid="fibonacciant.module.sourcepath"/>
+      <patternset refid="excluded.from.compilation.fibonacciant"/>
+    </javac>
+    
+    <copy todir="${fibonacciant.output.dir}">
+      <fileset dir="${module.fibonacciant.basedir}/src">
+        <patternset refid="compiler.resources"/>
+        <type type="file"/>
+      </fileset>
+      <fileset dir="${module.fibonacciant.basedir}/src/main">
+        <patternset refid="compiler.resources"/>
+        <type type="file"/>
+      </fileset>
+      <fileset dir="${module.fibonacciant.basedir}/src/main/resources">
+        <patternset refid="compiler.resources"/>
+        <type type="file"/>
+      </fileset>
+    </copy>
+  </target>
+  
+  <target name="compile.module.fibonacciant.tests" depends="compile.module.fibonacciant.production" description="compile module FibonacciAnt; test classes" unless="skip.tests">
+    <mkdir dir="${fibonacciant.testoutput.dir}"/>
+    <javac destdir="${fibonacciant.testoutput.dir}" debug="${compiler.debug}" nowarn="${compiler.generate.no.warnings}" memorymaximumsize="${compiler.max.memory}" fork="true" executable="${module.jdk.bin.fibonacciant}/javac">
+      <compilerarg line="${compiler.args.fibonacciant}"/>
+      <bootclasspath refid="fibonacciant.module.bootclasspath"/>
+      <classpath refid="fibonacciant.module.classpath"/>
+      <src refid="fibonacciant.module.test.sourcepath"/>
+      <patternset refid="excluded.from.compilation.fibonacciant"/>
+    </javac>
+    
+    <copy todir="${fibonacciant.testoutput.dir}">
+      <fileset dir="${module.fibonacciant.basedir}/src/Test">
+        <patternset refid="compiler.resources"/>
+        <type type="file"/>
+      </fileset>
+    </copy>
+  </target>
+  
+  <target name="clean.module.fibonacciant" description="cleanup module">
+    <delete dir="${fibonacciant.output.dir}"/>
+    <delete dir="${fibonacciant.testoutput.dir}"/>
+  </target>
+</project>
