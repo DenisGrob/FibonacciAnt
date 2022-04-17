@@ -53,8 +53,8 @@
   <path id="fibonacciant.module.sourcepath">
     <dirset dir="${module.fibonacciant.basedir}">
       <include name="src"/>
-      <include name="src/main/resources"/>
       <include name="src/main"/>
+      <include name="src/main/resources"/>
     </dirset>
   </path>
   
@@ -82,11 +82,11 @@
         <patternset refid="compiler.resources"/>
         <type type="file"/>
       </fileset>
-      <fileset dir="${module.fibonacciant.basedir}/src/main/resources">
+      <fileset dir="${module.fibonacciant.basedir}/src/main">
         <patternset refid="compiler.resources"/>
         <type type="file"/>
       </fileset>
-      <fileset dir="${module.fibonacciant.basedir}/src/main">
+      <fileset dir="${module.fibonacciant.basedir}/src/main/resources">
         <patternset refid="compiler.resources"/>
         <type type="file"/>
       </fileset>
