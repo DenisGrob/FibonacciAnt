@@ -52,9 +52,9 @@
   
   <path id="fibonacciant.module.sourcepath">
     <dirset dir="${module.fibonacciant.basedir}">
-      <include name="src"/>
       <include name="src/main/resources"/>
       <include name="src/main"/>
+      <include name="src"/>
     </dirset>
   </path>
   
@@ -67,21 +67,17 @@
   
   <target name="compile.module.fibonacciant" depends="compile.module.fibonacciant.production,compile.module.fibonacciant.tests" description="Compile module FibonacciAnt"/>
   
-  <target name="compile.module.fibonacciant.production" depends="register.custom.compilers" description="Compile module FibonacciAnt; production classes">
+  <target name="compile.module.fibonacciant.production" description="Compile module FibonacciAnt; production classes">
     <mkdir dir="${fibonacciant.output.dir}"/>
-    <javac2 destdir="${fibonacciant.output.dir}" debug="${compiler.debug}" nowarn="${compiler.generate.no.warnings}" memorymaximumsize="${compiler.max.memory}" fork="true" executable="${module.jdk.bin.fibonacciant}/javac">
+    <javac destdir="${fibonacciant.output.dir}" debug="${compiler.debug}" nowarn="${compiler.generate.no.warnings}" memorymaximumsize="${compiler.max.memory}" fork="true" executable="${module.jdk.bin.fibonacciant}/javac">
       <compilerarg line="${compiler.args.fibonacciant}"/>
       <bootclasspath refid="fibonacciant.module.bootclasspath"/>
       <classpath refid="fibonacciant.module.production.classpath"/>
       <src refid="fibonacciant.module.sourcepath"/>
       <patternset refid="excluded.from.compilation.fibonacciant"/>
-    </javac2>
+    </javac>
     
     <copy todir="${fibonacciant.output.dir}">
-      <fileset dir="${module.fibonacciant.basedir}/src">
-        <patternset refid="compiler.resources"/>
-        <type type="file"/>
-      </fileset>
       <fileset dir="${module.fibonacciant.basedir}/src/main/resources">
         <patternset refid="compiler.resources"/>
         <type type="file"/>
@@ -90,18 +86,22 @@
         <patternset refid="compiler.resources"/>
         <type type="file"/>
       </fileset>
+      <fileset dir="${module.fibonacciant.basedir}/src">
+        <patternset refid="compiler.resources"/>
+        <type type="file"/>
+      </fileset>
     </copy>
   </target>
   
-  <target name="compile.module.fibonacciant.tests" depends="register.custom.compilers,compile.module.fibonacciant.production" description="compile module FibonacciAnt; test classes" unless="skip.tests">
+  <target name="compile.module.fibonacciant.tests" depends="compile.module.fibonacciant.production" description="compile module FibonacciAnt; test classes" unless="skip.tests">
     <mkdir dir="${fibonacciant.testoutput.dir}"/>
-    <javac2 destdir="${fibonacciant.testoutput.dir}" debug="${compiler.debug}" nowarn="${compiler.generate.no.warnings}" memorymaximumsize="${compiler.max.memory}" fork="true" executable="${module.jdk.bin.fibonacciant}/javac">
+    <javac destdir="${fibonacciant.testoutput.dir}" debug="${compiler.debug}" nowarn="${compiler.generate.no.warnings}" memorymaximumsize="${compiler.max.memory}" fork="true" executable="${module.jdk.bin.fibonacciant}/javac">
       <compilerarg line="${compiler.args.fibonacciant}"/>
       <bootclasspath refid="fibonacciant.module.bootclasspath"/>
       <classpath refid="fibonacciant.module.classpath"/>
       <src refid="fibonacciant.module.test.sourcepath"/>
       <patternset refid="excluded.from.compilation.fibonacciant"/>
-    </javac2>
+    </javac>
     
     <copy todir="${fibonacciant.testoutput.dir}">
       <fileset dir="${module.fibonacciant.basedir}/src/Test">

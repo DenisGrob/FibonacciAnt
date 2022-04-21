@@ -16,7 +16,7 @@ public class Fibonacci {
 
         for(int i = 0; (double)i < op1; ++i) {
             r = String.valueOf(z);
-            if (r.substring(r.length() - 2).equals(".0")) {
+            if (r.endsWith(".0")) {
                 r = r.substring(0, r.length() - 2);
             }
 
